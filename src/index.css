@@ -1,0 +1,375 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Poppins", "Inter", "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  /* Custom Slow Animation Loops */
+  --animate-spin-slow: spin 16s linear infinite;
+  --animate-pulse-slow: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-fade-in: fadeIn 0.35s ease-out forwards;
+  --animate-slide-in: slideIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(3px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Custom Scrollbars for Luxury Dashboard Lists */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(209, 209, 209, 0.3);
+  border-radius: 99px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #D1D1D1;
+}
+
+/* Luxury Transparent Mesh Backdrop */
+.luxury-radial-bg {
+  background-color: #0B1B32 !important;
+  background-image: 
+    radial-gradient(at 15% 15%, rgba(131, 166, 206, 0.16) 0px, transparent 48%),
+    radial-gradient(at 85% 20%, rgba(196, 140, 179, 0.14) 0px, transparent 48%),
+    radial-gradient(at 50% 75%, rgba(38, 65, 94, 0.25) 0px, transparent 52%),
+    radial-gradient(at 5% 85%, rgba(13, 30, 76, 0.45) 0px, transparent 52%) !important;
+  background-attachment: fixed;
+  background-size: cover;
+  position: relative;
+}
+
+/* Subtle dot-matrix overlay of Swiss atelier quality */
+.luxury-radial-bg::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: radial-gradient(rgba(131, 166, 206, 0.08) 1px, transparent 0px);
+  background-size: 32px 32px;
+  pointer-events: none;
+  opacity: 0.35;
+  z-index: 1;
+}
+
+/* Modern Glassmorphic Backdrop utility */
+.glass-panel {
+  background-color: rgba(13, 30, 76, 0.45) !important;
+  backdrop-filter: blur(12px) saturate(140%) !important;
+  -webkit-backdrop-filter: blur(12px) saturate(140%) !important;
+  border: 1px solid rgba(131, 166, 206, 0.18) !important;
+  box-shadow: 0 8px 32px 0 rgba(11, 27, 50, 0.37) !important;
+}
+
+.glass-panel-dark {
+  background-color: rgba(11, 27, 50, 0.6) !important;
+  backdrop-filter: blur(16px) saturate(160%) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(160%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+
+/* Deep Midnight Blue Premium Theme overrides for dark mode style */
+body:not(.light-mode) .bg-neutral-950,
+body:not(.light-mode) #root .bg-neutral-950 {
+  background-color: #0B1B32 !important;
+}
+body:not(.light-mode) .bg-neutral-900,
+body:not(.light-mode) #root .bg-neutral-900 {
+  background-color: #0D1E4C !important;
+}
+body:not(.light-mode) .bg-neutral-900\/40,
+body:not(.light-mode) #root .bg-neutral-900\/40 {
+  background-color: rgba(13, 30, 76, 0.45) !important;
+}
+body:not(.light-mode) .bg-neutral-950\/95,
+body:not(.light-mode) #root .bg-neutral-950\/95 {
+  background-color: rgba(11, 27, 50, 0.95) !important;
+}
+body:not(.light-mode) .bg-neutral-850,
+body:not(.light-mode) .bg-neutral-800,
+body:not(.light-mode) #root .bg-neutral-850,
+body:not(.light-mode) #root .bg-neutral-800 {
+  background-color: #26415E !important;
+}
+body:not(.light-mode) .border-neutral-800,
+body:not(.light-mode) .border-neutral-850,
+body:not(.light-mode) #root .border-neutral-800,
+body:not(.light-mode) #root .border-neutral-850 {
+  border-color: rgba(38, 65, 94, 0.5) !important;
+}
+body:not(.light-mode) .bg-black\/80,
+body:not(.light-mode) .bg-black\/85,
+body:not(.light-mode) .bg-black\/90,
+body:not(.light-mode) .bg-black,
+body:not(.light-mode) #root .bg-black\/80,
+body:not(.light-mode) #root .bg-black\/85,
+body:not(.light-mode) #root .bg-black\/90,
+body:not(.light-mode) #root .bg-black {
+  background-color: rgba(11, 27, 50, 0.85) !important;
+}
+body:not(.light-mode) .text-[#D1D1D1] {
+  color: #83A6CE !important;
+}
+
+/* Premium Light Mode */
+body.light-mode {
+  background-color: #83A6CE !important;
+  background-image: none !important;
+  color: #0B1B32 !important;
+}
+
+body.light-mode::after {
+  opacity: 0.05 !important;
+}
+
+body.light-mode header,
+body.light-mode header div,
+body.light-mode header nav {
+  background-color: #83A6CE !important;
+  border-color: rgba(131, 166, 206, 0.5) !important;
+  color: #0B1B32 !important;
+}
+
+body.light-mode input, 
+body.light-mode select {
+  background-color: #ffffff !important;
+  border-color: #83A6CE !important;
+  color: #0B1B32 !important;
+}
+
+body.light-mode .bg-neutral-950,
+body.light-mode .bg-neutral-900,
+body.light-mode .bg-neutral-850,
+body.light-mode .bg-neutral-800,
+body.light-mode .bg-neutral-900\/40,
+body.light-mode .bg-neutral-900\/90,
+body.light-mode .bg-neutral-950\/95,
+body.light-mode .bg-black\/80,
+body.light-mode .bg-black\/95,
+body.light-mode .bg-black\/85,
+body.light-mode .bg-black\/90,
+body.light-mode .luxury-radial-bg {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  background-image: none !important;
+  border-color: rgba(131, 166, 206, 0.3) !important;
+  color: #0B1B32 !important;
+}
+
+body.light-mode .from-neutral-950,
+body.light-mode .from-neutral-900 {
+  --tw-gradient-from: #ffffff !important;
+  --tw-gradient-to: #83A6CE !important;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to) !important;
+}
+
+body.light-mode .via-neutral-900 {
+  --tw-gradient-via: #f1f5f9 !important;
+}
+
+body.light-mode .to-neutral-950 {
+  --tw-gradient-to: #83A6CE !important;
+}
+
+body.light-mode .text-neutral-400,
+body.light-mode .text-neutral-500 {
+  color: #26415E !important;
+}
+
+body.light-mode .text-white {
+  color: #0B1B32 !important;
+}
+
+body.light-mode .border-neutral-800,
+body.light-mode .border-neutral-850 {
+  border-color: rgba(131, 166, 206, 0.4) !important;
+}
+
+body.light-mode .text-neutral-300 {
+  color: #0D1E4C !important;
+}
+
+body.light-mode .glass-panel {
+  background-color: rgba(255, 255, 255, 0.8) !important;
+  border-color: rgba(131, 166, 206, 0.4) !important;
+}
+
+body.light-mode footer {
+  background-color: #83A6CE !important;
+  border-color: rgba(131, 166, 206, 0.4) !important;
+  color: #0B1B32 !important;
+}
+
+/* 1.3 Smooth Page Transitions keyframes */
+@keyframes pageIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-page-in {
+  animation: pageIn 0.38s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* 1.4 Scroll Reveal transition */
+.reveal-entry {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal-entry.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 1.5 Silver Shimmer Skeleton Loading */
+.gold-shimmer {
+  background: linear-gradient(90deg, #101010 25%, #222222 50%, #101010 75%);
+  background-size: 200% 100%;
+  animation: goldShimmer 1.5s infinite linear;
+  border-radius: 12px;
+}
+@keyframes goldShimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* CSS Tooltip system (3.7) */
+[data-tooltip] {
+  position: relative;
+}
+[data-tooltip]::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 110%;
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  opacity: 0;
+  pointer-events: none;
+  background-color: rgba(10, 10, 10, 0.95);
+  border: 1px solid #D1D1D1;
+  color: #E5E5E5;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 9px;
+  white-space: nowrap;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 50;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+[data-tooltip]:hover::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Global Button Interactive Micro-interactions & Color Deepening */
+button,
+[role="button"],
+.clickable-btn {
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+button:hover,
+[role="button"]:hover,
+.clickable-btn:hover {
+  filter: brightness(1.08) saturate(1.05);
+}
+
+button:active,
+[role="button"]:active,
+.clickable-btn:active {
+  transform: scale(0.96) !important;
+  filter: brightness(0.82) contrast(1.08) !important;
+}
+
+/* Underline effect for sub-navbar links */
+.nav-underline-anim {
+  position: relative;
+  transition: color 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  letter-spacing: 0.08em !important;
+  font-family: var(--font-sans) !important;
+}
+
+.nav-underline-anim::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background: linear-gradient(90deg, #D4AF37, #F59E0B) !important;
+  transform-origin: bottom right;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.nav-underline-anim:hover::after,
+.nav-underline-anim.active::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+body.light-mode .nav-underline-anim::after {
+  background: linear-gradient(90deg, #C48CB3, #0B1B32) !important;
+}
+
+/* Premium Navigation Icon Button Circle Scale & Hover Glows */
+.premium-nav-icon-btn {
+  padding: 10px !important;
+  border-radius: 9999px !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+}
+
+.premium-nav-icon-btn:hover {
+  background-color: rgba(212, 175, 55, 0.12) !important;
+  color: #D4AF37 !important;
+  transform: scale(1.12) !important;
+}
+
+.premium-nav-icon-btn:active {
+  transform: scale(0.94) !important;
+}
+
+body.light-mode .premium-nav-icon-btn:hover {
+  background-color: rgba(196, 140, 179, 0.18) !important;
+  color: #0B1B32 !important;
+}
+
+

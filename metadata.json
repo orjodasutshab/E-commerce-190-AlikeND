@@ -1,0 +1,8 @@
+{
+  "name": "Alike-ND — Sovereign Luxury & Wholesale Atelier Guild",
+  "description": "High-end luxury quick-commerce atelier guild and wholesale marketplace platform delivering sovereign luxury goods, bespoke timepieces, fine jewelry, and rare botanicals in 24 hours.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
